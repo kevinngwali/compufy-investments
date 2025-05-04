@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -20,7 +19,7 @@ const Services = () => {
         "Performance optimization",
         "Component upgrades"
       ],
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475"
     },
     {
       id: "network",
