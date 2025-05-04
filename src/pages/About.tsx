@@ -14,7 +14,7 @@ const About = () => {
         <section className="bg-gradient-to-b from-blue-50 to-white py-16">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="heading-1 text-tech-darkBlue mb-4">About TechOasis Solutions</h1>
+              <h1 className="heading-1 text-tech-darkBlue mb-4">About Compufy Investments</h1>
               <p className="text-lg text-gray-700">
                 Your trusted partner in IT support and technology solutions since 2003.
               </p>
@@ -29,7 +29,7 @@ const About = () => {
               <div>
                 <h2 className="heading-2 text-tech-darkBlue mb-4">Our Story</h2>
                 <p className="text-gray-700 mb-4">
-                  TechOasis Solutions was founded in 2003 with a simple mission: to provide reliable, 
+                  Compufy Investments was founded in 2003 with a simple mission: to provide reliable, 
                   user-friendly IT support to businesses and individuals who needed technology expertise 
                   without the technical jargon and complicated processes.
                 </p>
@@ -47,7 +47,7 @@ const About = () => {
               <div className="rounded-lg overflow-hidden shadow-lg">
                 <img 
                   src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
-                  alt="TechOasis Team" 
+                  alt="Compufy Investments Team" 
                   className="w-full"
                 />
               </div>

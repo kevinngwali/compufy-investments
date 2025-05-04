@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -92,7 +91,7 @@ const Contact = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Email</h3>
                 <p className="text-gray-600 mb-2">24/7 Support</p>
-                <a href="mailto:support@techoasis.com" className="text-tech-blue font-medium">support@techoasis.com</a>
+                <a href="mailto:support@compufyinvestments.com" className="text-tech-blue font-medium">support@compufyinvestments.com</a>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
@@ -212,7 +211,7 @@ const Contact = () => {
                   <div className="w-full h-full flex items-center justify-center bg-gray-100">
                     <div className="text-center p-6">
                       <MapPin className="mx-auto mb-4 text-tech-blue" size={48} />
-                      <h3 className="text-lg font-semibold mb-2">TechOasis Solutions</h3>
+                      <h3 className="text-lg font-semibold mb-2">Compufy Investments</h3>
                       <p className="text-gray-600">
                         123 Tech Street<br />
                         IT Park, Digital City, 10101
