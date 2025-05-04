@@ -94,3 +94,69 @@
     @apply text-2xl sm:text-3xl font-bold;
   }
 }
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+:root {
+  --tech-blue: #0077CC;
+  --tech-darkBlue: #004080;
+  --tech-lightBlue: #66B2FF;
+}
+
+.text-tech-blue {
+  color: var(--tech-blue);
+}
+
+.text-tech-darkBlue {
+  color: var(--tech-darkBlue);
+}
+
+.text-tech-lightBlue {
+  color: var(--tech-lightBlue);
+}
+
+.bg-tech-blue {
+  background-color: var(--tech-blue);
+}
+
+.bg-tech-darkBlue {
+  background-color: var(--tech-darkBlue);
+}
+
+.bg-tech-lightBlue {
+  background-color: var(--tech-lightBlue);
+}
+
+.border-tech-blue {
+  border-color: var(--tech-blue);
+}
+
+.hover\:bg-tech-blue:hover {
+  background-color: var(--tech-blue);
+}
+
+.hover\:bg-tech-darkBlue:hover {
+  background-color: var(--tech-darkBlue);
+}
+

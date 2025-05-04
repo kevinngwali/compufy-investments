@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
+import Logo from "@/components/Logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,12 +25,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-md py-4 sticky top-0 z-50">
       <div className="container-custom">
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <span className="text-tech-blue text-2xl font-bold">TechOasis</span>
-              <span className="text-tech-darkBlue font-medium ml-1">Solutions</span>
-            </Link>
-          </div>
+          <Logo />
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
@@ -47,7 +43,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Button className="bg-tech-blue hover:bg-tech-darkBlue text-white">
-              Get Support
+              <Link to="/contact">Get Support</Link>
             </Button>
           </div>
           
@@ -85,7 +81,7 @@ const Navbar = () => {
                 className="bg-tech-blue hover:bg-tech-darkBlue text-white w-full mt-2"
                 onClick={() => setIsOpen(false)}
               >
-                Get Support
+                <Link to="/contact">Get Support</Link>
               </Button>
             </div>
           </div>
