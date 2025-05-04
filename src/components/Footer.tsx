@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">TechOasis Solutions</h3>
+            <h3 className="text-xl font-bold mb-4">Compufy Investments</h3>
             <p className="text-gray-300 mb-4">Your reliable partner for all IT support needs. We provide comprehensive solutions for businesses and individuals.</p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
@@ -84,7 +84,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Mail size={20} className="mr-3 flex-shrink-0 mt-1" />
-                <span>support@techoasis.com</span>
+                <span>support@compufyinvestments.com</span>
               </li>
               <li className="flex items-start">
                 <MapPin size={20} className="mr-3 flex-shrink-0 mt-1" />
@@ -96,7 +96,7 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© 2023 TechOasis Solutions. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">© 2023 Compufy Investments. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
             <Link to="/terms-of-service" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
