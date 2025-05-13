@@ -34,7 +34,7 @@ const Services = () => {
         "VPN setup and configuration",
         "Network troubleshooting and optimization"
       ],
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
     },
     {
       id: "cctv",
