@@ -49,7 +49,7 @@ const Services = () => {
         "Night vision camera installation",
         "Maintenance and support services"
       ],
-      image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c"
+      image: "/lovable-uploads/d5ca222b-3fc2-4ac5-b12d-437096b9d2c9.png"
     },
     {
       id: "web",
