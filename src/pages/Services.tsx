@@ -19,7 +19,7 @@ const Services = () => {
         "Performance optimization",
         "Component upgrades"
       ],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475"
+      image: "/lovable-uploads/ca0fca17-1fb7-4741-82ef-57ca2211043f.png"
     },
     {
       id: "network",
