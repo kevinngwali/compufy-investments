@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -64,7 +65,7 @@ const Services = () => {
         "SEO-friendly website structure",
         "Website maintenance and support"
       ],
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+      image: "/lovable-uploads/df1d50f4-cbe9-4cd9-8b4b-82aa0c6381ea.png"
     },
     {
       id: "remote",
