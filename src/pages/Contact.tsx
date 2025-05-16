@@ -82,7 +82,7 @@ const Contact = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Phone</h3>
                 <p className="text-gray-600 mb-2">Mon-Fri: 8am - 6pm</p>
-                <a href="tel:+15551234567" className="text-tech-blue font-medium">+1 (555) 123-4567</a>
+                <a href="tel:+263772752393" className="text-tech-blue font-medium">+263772752393 / +263712125999</a>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
@@ -170,7 +170,7 @@ const Contact = () => {
                         <SelectItem value="cctv">CCTV Installation</SelectItem>
                         <SelectItem value="web">Website Development</SelectItem>
                         <SelectItem value="remote">Remote Assistance</SelectItem>
-                        <SelectItem value="training">Product Training</SelectItem>
+                        <SelectItem value="training">Training and Consultancy</SelectItem>
                         <SelectItem value="products">Product Purchase</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>

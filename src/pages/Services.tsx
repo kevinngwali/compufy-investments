@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -84,8 +83,8 @@ const Services = () => {
     },
     {
       id: "training",
-      title: "Product Training",
-      description: "Maximize your investment in technology with our comprehensive training programs. We provide hands-on instruction for various software applications, hardware usage, and IT systems to ensure your team can efficiently utilize your technology.",
+      title: "Training and Consultancy",
+      description: "Maximize your tech investment with our services and products. Our expert guidance includes hands-on instruction for software applications, hardware usage, and IT systems, ensuring you efficiently utilize your technology.",
       icon: Monitor,
       features: [
         "Customized training programs",

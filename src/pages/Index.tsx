@@ -1,4 +1,3 @@
-
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -41,8 +40,8 @@ const Index = () => {
       link: "/services#remote",
     },
     {
-      title: "Product Training",
-      description: "Get the most out of your technology with our comprehensive training programs.",
+      title: "Training and Consultancy",
+      description: "Maximize your tech investment with our expert guidance and training programs.",
       icon: Monitor,
       link: "/services#training",
     },
