@@ -201,31 +201,74 @@ const FinancePage = () => {
                     </Badge>
                   </TableCell>
                   <TableCell className="text-sm">{i.due_date ? format(new Date(i.due_date), "d MMM yyyy") : "—"}</TableCell>
-                  {canWrite && (
-                    <TableCell>
-                      {i.status !== "paid" && (
-                        <Dialog open={payOpen === i.id} onOpenChange={(o) => { setPayOpen(o ? i.id : null); setPayAmount(""); }}>
-                          <DialogTrigger asChild>
-                            <Button size="sm" variant="outline"><DollarSign className="h-3 w-3 mr-1" />Pay</Button>
-                          </DialogTrigger>
-                          <DialogContent>
-                            <DialogHeader><DialogTitle>Record payment</DialogTitle></DialogHeader>
-                            <div className="space-y-2">
+                  <TableCell className="text-right">
+                    <Button size="sm" variant="ghost" asChild>
+                      <Link to={`/admin/finance/statement/${i.student_id}`}>
+                        <FileText className="h-3 w-3 mr-1" />Statement
+                      </Link>
+                    </Button>
+                    {canWrite && i.status !== "paid" && (
+                      <Dialog
+                        open={payOpen === i.id}
+                        onOpenChange={(o) => {
+                          setPayOpen(o ? i.id : null);
+                          setPayment({ amount: "", method: "cash", reference: "", paid_on: format(new Date(), "yyyy-MM-dd"), notes: "" });
+                        }}
+                      >
+                        <DialogTrigger asChild>
+                          <Button size="sm" variant="outline" className="ml-2"><DollarSign className="h-3 w-3 mr-1" />Pay</Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader><DialogTitle>Record payment</DialogTitle></DialogHeader>
+                          <div className="space-y-3">
+                            <div className="space-y-1">
                               <Label>Amount</Label>
-                              <Input type="number" step="0.01" value={payAmount} onChange={(e) => setPayAmount(e.target.value)} />
+                              <Input type="number" step="0.01" value={payment.amount} onChange={(e) => setPayment({ ...payment, amount: e.target.value })} />
                               <p className="text-xs text-muted-foreground">
                                 Balance: ${(Number(i.amount_due) - Number(i.amount_paid)).toLocaleString()}
                               </p>
                             </div>
-                            <DialogFooter>
-                              <Button variant="outline" onClick={() => setPayOpen(null)}>Cancel</Button>
-                              <Button className="bg-tech-blue hover:bg-tech-darkBlue" onClick={() => recordPayment(i.id, Number(i.amount_paid))}>Record</Button>
-                            </DialogFooter>
-                          </DialogContent>
-                        </Dialog>
-                      )}
-                    </TableCell>
-                  )}
+                            <div className="grid grid-cols-2 gap-3">
+                              <div className="space-y-1">
+                                <Label>Method</Label>
+                                <Select value={payment.method} onValueChange={(v) => setPayment({ ...payment, method: v })}>
+                                  <SelectTrigger><SelectValue /></SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="cash">Cash</SelectItem>
+                                    <SelectItem value="bank_transfer">Bank transfer</SelectItem>
+                                    <SelectItem value="ecocash">EcoCash</SelectItem>
+                                    <SelectItem value="cheque">Cheque</SelectItem>
+                                    <SelectItem value="card">Card</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              </div>
+                              <div className="space-y-1">
+                                <Label>Date</Label>
+                                <Input type="date" value={payment.paid_on} onChange={(e) => setPayment({ ...payment, paid_on: e.target.value })} />
+                              </div>
+                            </div>
+                            <div className="space-y-1">
+                              <Label>Reference</Label>
+                              <Input placeholder="Receipt / transaction #" value={payment.reference} onChange={(e) => setPayment({ ...payment, reference: e.target.value })} />
+                            </div>
+                            <div className="space-y-1">
+                              <Label>Notes</Label>
+                              <Textarea rows={2} value={payment.notes} onChange={(e) => setPayment({ ...payment, notes: e.target.value })} />
+                            </div>
+                          </div>
+                          <DialogFooter>
+                            <Button variant="outline" onClick={() => setPayOpen(null)}>Cancel</Button>
+                            <Button
+                              className="bg-tech-blue hover:bg-tech-darkBlue"
+                              onClick={() => recordPayment(i.id, Number(i.amount_due) - Number(i.amount_paid))}
+                            >
+                              Record
+                            </Button>
+                          </DialogFooter>
+                        </DialogContent>
+                      </Dialog>
+                    )}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
