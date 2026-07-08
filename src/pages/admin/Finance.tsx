@@ -178,12 +178,12 @@ const FinancePage = () => {
                 <TableHead>Balance</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Due date</TableHead>
-                {canWrite && <TableHead />}
+                <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {invoices.length === 0 && (
-                <TableRow><TableCell colSpan={canWrite ? 8 : 7} className="text-center text-muted-foreground">No invoices yet.</TableCell></TableRow>
+                <TableRow><TableCell colSpan={8} className="text-center text-muted-foreground">No invoices yet.</TableCell></TableRow>
               )}
               {invoices.map((i: any) => (
                 <TableRow key={i.id}>
