@@ -28,7 +28,7 @@ const FinancePage = () => {
 
   const [open, setOpen] = useState(false);
   const [payOpen, setPayOpen] = useState<string | null>(null);
-  const [payAmount, setPayAmount] = useState("");
+  const [payment, setPayment] = useState({ amount: "", method: "cash", reference: "", paid_on: format(new Date(), "yyyy-MM-dd"), notes: "" });
   const [form, setForm] = useState({ student_id: "", term: "Term 1", amount_due: "", due_date: "" });
 
   const { data: invoices = [] } = useQuery({
