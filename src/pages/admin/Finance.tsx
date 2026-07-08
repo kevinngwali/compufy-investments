@@ -74,14 +74,23 @@ const FinancePage = () => {
     qc.invalidateQueries({ queryKey: ["finance-invoices"] });
   };
 
-  const recordPayment = async (id: string, current: number) => {
-    const amt = Number(payAmount);
+  const recordPayment = async (invoiceId: string, balance: number) => {
+    const amt = Number(payment.amount);
     if (!amt || amt <= 0) return toast.error("Enter a valid amount");
-    const { error } = await supabase.from("fee_invoices").update({ amount_paid: current + amt }).eq("id", id);
+    if (amt > balance + 0.001) return toast.error("Amount exceeds outstanding balance");
+    const { error } = await supabase.from("fee_payments").insert({
+      invoice_id: invoiceId,
+      amount: amt,
+      method: payment.method,
+      reference: payment.reference || null,
+      paid_on: payment.paid_on,
+      notes: payment.notes || null,
+      recorded_by: user?.id ?? null,
+    });
     if (error) return toast.error(error.message);
     toast.success("Payment recorded");
     setPayOpen(null);
-    setPayAmount("");
+    setPayment({ amount: "", method: "cash", reference: "", paid_on: format(new Date(), "yyyy-MM-dd"), notes: "" });
     qc.invalidateQueries({ queryKey: ["finance-invoices"] });
   };
 
