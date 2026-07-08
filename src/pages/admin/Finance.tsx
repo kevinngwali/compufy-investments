@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -14,18 +16,19 @@ import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Plus, DollarSign } from "lucide-react";
+import { Plus, DollarSign, FileText } from "lucide-react";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
 const FinancePage = () => {
+  const { user } = useAuth();
   const qc = useQueryClient();
   const { hasRole } = useAuth();
   const canWrite = hasRole("admin") || hasRole("finance");
 
   const [open, setOpen] = useState(false);
   const [payOpen, setPayOpen] = useState<string | null>(null);
-  const [payAmount, setPayAmount] = useState("");
+  const [payment, setPayment] = useState({ amount: "", method: "cash", reference: "", paid_on: format(new Date(), "yyyy-MM-dd"), notes: "" });
   const [form, setForm] = useState({ student_id: "", term: "Term 1", amount_due: "", due_date: "" });
 
   const { data: invoices = [] } = useQuery({
@@ -71,14 +74,23 @@ const FinancePage = () => {
     qc.invalidateQueries({ queryKey: ["finance-invoices"] });
   };
 
-  const recordPayment = async (id: string, current: number) => {
-    const amt = Number(payAmount);
+  const recordPayment = async (invoiceId: string, balance: number) => {
+    const amt = Number(payment.amount);
     if (!amt || amt <= 0) return toast.error("Enter a valid amount");
-    const { error } = await supabase.from("fee_invoices").update({ amount_paid: current + amt }).eq("id", id);
+    if (amt > balance + 0.001) return toast.error("Amount exceeds outstanding balance");
+    const { error } = await supabase.from("fee_payments").insert({
+      invoice_id: invoiceId,
+      amount: amt,
+      method: payment.method,
+      reference: payment.reference || null,
+      paid_on: payment.paid_on,
+      notes: payment.notes || null,
+      recorded_by: user?.id ?? null,
+    });
     if (error) return toast.error(error.message);
     toast.success("Payment recorded");
     setPayOpen(null);
-    setPayAmount("");
+    setPayment({ amount: "", method: "cash", reference: "", paid_on: format(new Date(), "yyyy-MM-dd"), notes: "" });
     qc.invalidateQueries({ queryKey: ["finance-invoices"] });
   };
 
@@ -166,12 +178,12 @@ const FinancePage = () => {
                 <TableHead>Balance</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Due date</TableHead>
-                {canWrite && <TableHead />}
+                <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {invoices.length === 0 && (
-                <TableRow><TableCell colSpan={canWrite ? 8 : 7} className="text-center text-muted-foreground">No invoices yet.</TableCell></TableRow>
+                <TableRow><TableCell colSpan={8} className="text-center text-muted-foreground">No invoices yet.</TableCell></TableRow>
               )}
               {invoices.map((i: any) => (
                 <TableRow key={i.id}>
@@ -189,31 +201,74 @@ const FinancePage = () => {
                     </Badge>
                   </TableCell>
                   <TableCell className="text-sm">{i.due_date ? format(new Date(i.due_date), "d MMM yyyy") : "—"}</TableCell>
-                  {canWrite && (
-                    <TableCell>
-                      {i.status !== "paid" && (
-                        <Dialog open={payOpen === i.id} onOpenChange={(o) => { setPayOpen(o ? i.id : null); setPayAmount(""); }}>
-                          <DialogTrigger asChild>
-                            <Button size="sm" variant="outline"><DollarSign className="h-3 w-3 mr-1" />Pay</Button>
-                          </DialogTrigger>
-                          <DialogContent>
-                            <DialogHeader><DialogTitle>Record payment</DialogTitle></DialogHeader>
-                            <div className="space-y-2">
+                  <TableCell className="text-right">
+                    <Button size="sm" variant="ghost" asChild>
+                      <Link to={`/admin/finance/statement/${i.student_id}`}>
+                        <FileText className="h-3 w-3 mr-1" />Statement
+                      </Link>
+                    </Button>
+                    {canWrite && i.status !== "paid" && (
+                      <Dialog
+                        open={payOpen === i.id}
+                        onOpenChange={(o) => {
+                          setPayOpen(o ? i.id : null);
+                          setPayment({ amount: "", method: "cash", reference: "", paid_on: format(new Date(), "yyyy-MM-dd"), notes: "" });
+                        }}
+                      >
+                        <DialogTrigger asChild>
+                          <Button size="sm" variant="outline" className="ml-2"><DollarSign className="h-3 w-3 mr-1" />Pay</Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader><DialogTitle>Record payment</DialogTitle></DialogHeader>
+                          <div className="space-y-3">
+                            <div className="space-y-1">
                               <Label>Amount</Label>
-                              <Input type="number" step="0.01" value={payAmount} onChange={(e) => setPayAmount(e.target.value)} />
+                              <Input type="number" step="0.01" value={payment.amount} onChange={(e) => setPayment({ ...payment, amount: e.target.value })} />
                               <p className="text-xs text-muted-foreground">
                                 Balance: ${(Number(i.amount_due) - Number(i.amount_paid)).toLocaleString()}
                               </p>
                             </div>
-                            <DialogFooter>
-                              <Button variant="outline" onClick={() => setPayOpen(null)}>Cancel</Button>
-                              <Button className="bg-tech-blue hover:bg-tech-darkBlue" onClick={() => recordPayment(i.id, Number(i.amount_paid))}>Record</Button>
-                            </DialogFooter>
-                          </DialogContent>
-                        </Dialog>
-                      )}
-                    </TableCell>
-                  )}
+                            <div className="grid grid-cols-2 gap-3">
+                              <div className="space-y-1">
+                                <Label>Method</Label>
+                                <Select value={payment.method} onValueChange={(v) => setPayment({ ...payment, method: v })}>
+                                  <SelectTrigger><SelectValue /></SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="cash">Cash</SelectItem>
+                                    <SelectItem value="bank_transfer">Bank transfer</SelectItem>
+                                    <SelectItem value="ecocash">EcoCash</SelectItem>
+                                    <SelectItem value="cheque">Cheque</SelectItem>
+                                    <SelectItem value="card">Card</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              </div>
+                              <div className="space-y-1">
+                                <Label>Date</Label>
+                                <Input type="date" value={payment.paid_on} onChange={(e) => setPayment({ ...payment, paid_on: e.target.value })} />
+                              </div>
+                            </div>
+                            <div className="space-y-1">
+                              <Label>Reference</Label>
+                              <Input placeholder="Receipt / transaction #" value={payment.reference} onChange={(e) => setPayment({ ...payment, reference: e.target.value })} />
+                            </div>
+                            <div className="space-y-1">
+                              <Label>Notes</Label>
+                              <Textarea rows={2} value={payment.notes} onChange={(e) => setPayment({ ...payment, notes: e.target.value })} />
+                            </div>
+                          </div>
+                          <DialogFooter>
+                            <Button variant="outline" onClick={() => setPayOpen(null)}>Cancel</Button>
+                            <Button
+                              className="bg-tech-blue hover:bg-tech-darkBlue"
+                              onClick={() => recordPayment(i.id, Number(i.amount_due) - Number(i.amount_paid))}
+                            >
+                              Record
+                            </Button>
+                          </DialogFooter>
+                        </DialogContent>
+                      </Dialog>
+                    )}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

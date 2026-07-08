@@ -16,6 +16,7 @@ import AdminLogin from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
 import StudentsPage from "./pages/admin/Students";
 import FinancePage from "./pages/admin/Finance";
+import StatementPage from "./pages/admin/Statement";
 import AnnouncementsPage from "./pages/admin/Announcements";
 
 const queryClient = new QueryClient();
@@ -47,6 +48,7 @@ const App = () => (
               <Route index element={<Dashboard />} />
               <Route path="students" element={<StudentsPage />} />
               <Route path="finance" element={<FinancePage />} />
+              <Route path="finance/statement/:studentId" element={<StatementPage />} />
               <Route path="announcements" element={<AnnouncementsPage />} />
             </Route>
 
