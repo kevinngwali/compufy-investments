@@ -102,40 +102,6 @@ const About = () => {
           </div>
         </section>
         
-        {/* Our Team */}
-        <section className="py-16">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="heading-2 text-tech-darkBlue mb-4">Meet Our Team</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Our experienced professionals are the backbone of our success.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {[
-                {name: "John Smith", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"},
-                {name: "Sarah Johnson", role: "Technical Director", image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"},
-                {name: "Michael Lee", role: "Network Specialist", image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"},
-                {name: "Emma Wilson", role: "Web Developer", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"}
-              ].map((member, index) => (
-                <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-4 text-center">
-                    <h3 className="font-bold text-lg">{member.name}</h3>
-                    <p className="text-gray-600">{member.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
         
         {/* CTA Section */}
         <section className="py-16 bg-tech-blue text-white">
