@@ -29,7 +29,7 @@ const About = () => {
               <div>
                 <h2 className="heading-2 text-tech-darkBlue mb-4">Our Story</h2>
                 <p className="text-gray-700 mb-4">
-                  Compufy Investments was founded in 2003 with a simple mission: to provide reliable, 
+                  Compufy Investments was founded in 2016 with a simple mission: to provide reliable, 
                   user-friendly IT support to businesses and individuals who needed technology expertise 
                   without the technical jargon and complicated processes.
                 </p>
