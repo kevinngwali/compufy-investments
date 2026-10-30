@@ -218,8 +218,8 @@ const Contact = () => {
                       <MapPin className="mx-auto mb-4 text-tech-blue" size={48} />
                       <h3 className="text-lg font-semibold mb-2">Compufy Investments</h3>
                       <p className="text-gray-600">
-                        123 Tech Street<br />
-                        IT Park, Digital City, 10101
+                        We offer call-out services at a standard fare
+
                       </p>
                     </div>
                   </div>
