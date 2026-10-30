@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
-import TestimonialCard from "@/components/TestimonialCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Laptop, Network, Cctv, Code, Wifi, Monitor } from "lucide-react";
@@ -47,26 +46,6 @@ const Index = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      name: "Jane Cooper",
-      role: "CEO",
-      company: "ABC Industries",
-      content: "Compufy Investments completely transformed our IT infrastructure. Their team was professional, knowledgeable, and incredibly efficient. Highly recommended!",
-    },
-    {
-      name: "Michael Johnson",
-      role: "Operations Manager",
-      company: "XYZ Corp",
-      content: "We've been working with Compufy Investments for over 3 years now. Their quick response time and technical expertise have saved us countless hours of downtime.",
-    },
-    {
-      name: "Sarah Williams",
-      role: "Small Business Owner",
-      company: "Craft Café",
-      content: "As a small business owner with limited technical knowledge, I'm grateful for Compufy Investments' patient explanations and affordable solutions tailored to my needs.",
-    },
-  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -229,37 +208,8 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Testimonials */}
-        <section className="py-16">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="heading-2 text-tech-darkBlue mb-4">What Our Clients Say</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Don't just take our word for it. Here's what our clients have to say about our services.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <TestimonialCard 
-                  key={index}
-                  name={testimonial.name}
-                  role={testimonial.role}
-                  company={testimonial.company}
-                  content={testimonial.content}
-                />
-              ))}
-            </div>
-            
-            <div className="text-center mt-12">
-              <Button variant="outline" className="border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white">
-                <Link to="/testimonials">View All Testimonials</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-        
         {/* CTA Section */}
+
         <section className="py-16 bg-tech-blue text-white">
           <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto">
