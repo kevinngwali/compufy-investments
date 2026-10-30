@@ -52,7 +52,7 @@ const Index = () => {
       name: "Jane Cooper",
       role: "CEO",
       company: "ABC Industries",
-      content: "TechOasis Solutions completely transformed our IT infrastructure. Their team was professional, knowledgeable, and incredibly efficient. Highly recommended!",
+      content: "Compufy Investments completely transformed our IT infrastructure. Their team was professional, knowledgeable, and incredibly efficient. Highly recommended!",
     },
     {
       name: "Michael Johnson",
