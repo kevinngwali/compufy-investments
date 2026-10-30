@@ -175,7 +175,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
                 <div className="w-16 h-16 rounded-full bg-tech-blue/10 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl text-tech-blue">20+</span>
+                  <span className="text-2xl text-tech-blue">10+</span>
                 </div>
                 <h3 className="font-bold text-xl mb-2">Years Experience</h3>
                 <p className="text-gray-600">Over two decades of IT industry expertise</p>

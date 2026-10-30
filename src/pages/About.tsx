@@ -16,7 +16,7 @@ const About = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="heading-1 text-tech-darkBlue mb-4">About Compufy Investments</h1>
               <p className="text-lg text-gray-700">
-                Your trusted partner in IT support and technology solutions since 2003.
+                Your trusted partner in IT support and technology solutions since 2016.
               </p>
             </div>
           </div>
@@ -29,7 +29,7 @@ const About = () => {
               <div>
                 <h2 className="heading-2 text-tech-darkBlue mb-4">Our Story</h2>
                 <p className="text-gray-700 mb-4">
-                  Compufy Investments was founded in 2003 with a simple mission: to provide reliable, 
+                  Compufy Investments was founded in 2016 with a simple mission: to provide reliable, 
                   user-friendly IT support to businesses and individuals who needed technology expertise 
                   without the technical jargon and complicated processes.
                 </p>
