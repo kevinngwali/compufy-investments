@@ -58,13 +58,13 @@ const Index = () => {
       name: "Michael Johnson",
       role: "Operations Manager",
       company: "XYZ Corp",
-      content: "We've been working with TechOasis for over 3 years now. Their quick response time and technical expertise have saved us countless hours of downtime.",
+      content: "We've been working with Compufy Investments for over 3 years now. Their quick response time and technical expertise have saved us countless hours of downtime.",
     },
     {
       name: "Sarah Williams",
       role: "Small Business Owner",
       company: "Craft Café",
-      content: "As a small business owner with limited technical knowledge, I'm grateful for TechOasis's patient explanations and affordable solutions tailored to my needs.",
+      content: "As a small business owner with limited technical knowledge, I'm grateful for Compufy Investments' patient explanations and affordable solutions tailored to my needs.",
     },
   ];
 
