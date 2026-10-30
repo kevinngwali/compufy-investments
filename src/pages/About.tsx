@@ -16,7 +16,7 @@ const About = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="heading-1 text-tech-darkBlue mb-4">About Compufy Investments</h1>
               <p className="text-lg text-gray-700">
-                Your trusted partner in IT support and technology solutions since 2003.
+                Your trusted partner in IT support and technology solutions since 2016.
               </p>
             </div>
           </div>
