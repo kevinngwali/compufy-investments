@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
 const Contact = () => {
   const location = useLocation();
@@ -99,11 +99,16 @@ const Contact = () => {
                   <MapPin className="text-tech-blue" size={24} />
                 </div>
                 <h3 className="text-xl font-bold mb-2">We offer call-out services at a standard fare</h3>
-                <p className="text-gray-600 mb-2">Mon-Fri: 9am - 5pm</p>
-                <address className="not-italic text-tech-blue font-medium">
-                  123 Tech Street<br />
-                  IT Park, Digital City, 10101
-                </address>
+                <a href="tel:+263772752393" className="block text-tech-blue font-medium">+263772752393</a>
+                <a
+                  href="https://wa.me/263772752393"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-tech-blue font-medium mt-1"
+                >
+                  <MessageCircle size={16} /> WhatsApp us
+                </a>
+
               </div>
             </div>
             
