@@ -98,7 +98,7 @@ const Contact = () => {
                 <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full bg-tech-blue/10">
                   <MapPin className="text-tech-blue" size={24} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Visit Us</h3>
+                <h3 className="text-xl font-bold mb-2">We offer call-out services at a standard fare</h3>
                 <p className="text-gray-600 mb-2">Mon-Fri: 9am - 5pm</p>
                 <address className="not-italic text-tech-blue font-medium">
                   123 Tech Street<br />
