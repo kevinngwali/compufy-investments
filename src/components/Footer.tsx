@@ -88,7 +88,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <MapPin size={20} className="mr-3 flex-shrink-0 mt-1" />
-                <span>123 Tech Street, IT Park, Digital City, 10101</span>
+                <span>We offer call-out services at a standard fare</span>
               </li>
             </ul>
           </div>
