@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoAsset from "@/assets/compufy-logo.png.asset.json";
+import logoAsset from "@/assets/compufy-logo-h.png.asset.json";
 
 interface LogoProps {
   showText?: boolean;
@@ -8,7 +8,7 @@ interface LogoProps {
 
 const Logo = ({ showText = false, size = 'medium' }: LogoProps) => {
   const heightClass =
-    size === 'small' ? 'h-20' : size === 'large' ? 'h-52' : 'h-28';
+    size === 'small' ? 'h-10' : size === 'large' ? 'h-28' : 'h-16';
 
   return (
     <Link to="/" className="flex items-center" aria-label="Compufy Investments home">
