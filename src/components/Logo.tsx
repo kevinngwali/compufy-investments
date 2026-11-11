@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import logoAsset from "@/assets/compufy-logo.png.asset.json";
 
