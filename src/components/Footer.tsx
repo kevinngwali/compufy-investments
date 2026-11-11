@@ -63,9 +63,6 @@ const Footer = () => {
                 <Link to="/products" className="text-gray-300 hover:text-white transition-colors">Products</Link>
               </li>
               <li>
-                <Link to="/faq" className="text-gray-300 hover:text-white transition-colors">FAQ</Link>
-              </li>
-              <li>
                 <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</Link>
               </li>
             </ul>
@@ -81,7 +78,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Mail size={20} className="mr-3 flex-shrink-0 mt-1" />
-                <span>support@compufyinvestments.com</span>
+                <span>compufyinvestments@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <MapPin size={20} className="mr-3 flex-shrink-0 mt-1" />
