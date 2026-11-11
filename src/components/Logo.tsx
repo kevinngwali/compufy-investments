@@ -8,7 +8,7 @@ interface LogoProps {
 
 const Logo = ({ showText = false, size = 'medium' }: LogoProps) => {
   const heightClass =
-    size === 'small' ? 'h-8' : size === 'large' ? 'h-24' : 'h-14';
+    size === 'small' ? 'h-12' : size === 'large' ? 'h-36' : 'h-20';
 
   return (
     <Link to="/" className="flex items-center" aria-label="Compufy Investments home">
