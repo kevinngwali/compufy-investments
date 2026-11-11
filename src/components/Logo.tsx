@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoAsset from "@/assets/compufy-logo-h.png.asset.json";
+import logoAsset from "@/assets/compufy-logo-h2.png.asset.json";
 
 interface LogoProps {
   showText?: boolean;
