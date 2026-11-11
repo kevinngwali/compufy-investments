@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import Logo from "@/components/Logo";
 
 const Hero = () => {
   return (
@@ -9,9 +8,6 @@ const Hero = () => {
       <div className="container-custom py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
-            <div className="mb-6">
-              <Logo size="large" />
-            </div>
             <h1 className="heading-1 text-tech-darkBlue mb-4">
               Expert IT Support for<br className="hidden sm:block" />
               <span className="text-tech-blue">Your Business</span>
