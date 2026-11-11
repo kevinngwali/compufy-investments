@@ -247,45 +247,6 @@ const Contact = () => {
           </div>
         </section>
         
-        {/* FAQ Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="container-custom">
-            <div className="text-center mb-12">
-              <h2 className="heading-2 text-tech-darkBlue mb-4">Frequently Asked Questions</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Here are some common questions about our services and support process.
-              </p>
-            </div>
-            
-            <div className="max-w-3xl mx-auto">
-              <div className="space-y-6">
-                {[
-                  {
-                    question: "How quickly can you respond to an IT emergency?",
-                    answer: "We prioritize emergencies and typically respond within 1-2 hours for critical issues. Our team is on call 24/7 for emergency situations to minimize your downtime."
-                  },
-                  {
-                    question: "Do you offer maintenance contracts?",
-                    answer: "Yes, we offer flexible maintenance contracts tailored to your business needs. These include regular system checks, updates, and priority support to keep your systems running smoothly."
-                  },
-                  {
-                    question: "Can you support remote workers?",
-                    answer: "Absolutely. We specialize in setting up secure remote work solutions, including VPNs, cloud services, and remote desktop support to keep your team productive from anywhere."
-                  },
-                  {
-                    question: "What areas do you service?",
-                    answer: "We provide on-site support within a 50-mile radius of our office and remote support services nationwide. For clients outside our on-site service area, we offer comprehensive remote assistance."
-                  }
-                ].map((faq, index) => (
-                  <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h3 className="font-semibold text-lg mb-2">{faq.question}</h3>
-                    <p className="text-gray-600">{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       
       <Footer />
