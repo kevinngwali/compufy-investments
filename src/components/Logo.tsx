@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoAsset from "@/assets/compufy-logo.png.asset.json";
+import logoAsset from "../assets/compufy-logo.png";
 
 interface LogoProps {
   showText?: boolean;
@@ -13,7 +13,7 @@ const Logo = ({ showText = false, size = 'medium' }: LogoProps) => {
   return (
     <Link to="/" className="flex items-center" aria-label="Compufy Investments home">
       <img
-        src={logoAsset.url}
+        src={logoAsset}
         alt="Compufy Investments"
         className={`${heightClass} w-auto select-none`}
         draggable={false}
