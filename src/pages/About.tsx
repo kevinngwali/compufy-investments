@@ -14,7 +14,7 @@ const About = () => {
         <section className="bg-gradient-to-b from-blue-50 to-white py-16">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="heading-1 text-tech-darkBlue mb-4">About Compufy</h1>
+              <h1 className="heading-1 text-tech-darkBlue mb-4">About Us</h1>
               <p className="text-lg text-gray-700">
                 Your trusted partner in IT support and technology solutions since 2016.
               </p>
